@@ -1336,74 +1336,148 @@
             <h2 class="section-title">System Architecture</h2>
             <p class="section-subtitle">Enterprise-grade infrastructure designed for scalability, security, and high availability.</p>
             
-            <div class="architecture-diagram">
-                <div style="text-align: center;">
-                    <div style="margin: 2rem 0;">
-                        <div class="arch-box primary" style="display: inline-block;">
-                            <div class="arch-icon">🌐</div>
-                            <div>Nginx Load Balancer</div>
-                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">SSL/TLS Termination</div>
+            <div class="architecture-diagram" style="margin-top: 3rem; margin-bottom: 3rem; background: linear-gradient(135deg, #f8f9fa 0%, white 100%); padding: 3rem; border-radius: 16px; border: 2px solid #e5e8eb;">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <!-- Layer 1: Client -->
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <div style="display: inline-block; background: #f0f7ff; padding: 1rem 2rem; border-radius: 12px; border: 2px solid #0066cc;">
+                            <div style="font-size: 1.2rem; color: #0066cc; font-weight: 700; margin-bottom: 0.5rem;">🖥️ Client Layer</div>
+                            <div style="font-size: 0.85rem; color: #0066cc; opacity: 0.8;">Web Browser / Mobile App</div>
                         </div>
                     </div>
-                    <div style="font-size: 2rem; margin: 1rem 0; color: var(--text-secondary);">↓</div>
-                    <div style="margin: 2rem 0;">
-                        <div class="arch-box primary" style="display: inline-block; margin-right: 2rem;">
-                            <div class="arch-icon">⚡</div>
-                            <div>FastAPI Backend</div>
-                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Async Python</div>
-                        </div>
-                        <div class="arch-box primary" style="display: inline-block; margin-right: 2rem;">
-                            <div class="arch-icon">🔄</div>
-                            <div>Celery Workers</div>
-                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Background Tasks</div>
-                        </div>
-                        <div class="arch-box primary" style="display: inline-block;">
-                            <div class="arch-icon">📝</div>
-                            <div>Collabora Online</div>
-                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Document Editing</div>
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <svg style="height: 30px; width: 100%;" viewBox="0 0 100 30" preserveAspectRatio="none">
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                    <polygon points="0 0, 10 5, 0 10" fill="#0066cc" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="0" x2="50" y2="30" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)" />
+                        </svg>
+                    </div>
+
+                    <!-- Layer 2: API Gateway -->
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <div style="display: inline-block; background: #fff8f0; padding: 1.2rem 2rem; border-radius: 12px; border: 2px solid #ff6b35;">
+                            <div style="font-size: 1.2rem; color: #ff6b35; font-weight: 700; margin-bottom: 0.5rem;">🌐 API Gateway</div>
+                            <div style="font-size: 0.85rem; color: #ff6b35; opacity: 0.8;">Nginx + TLS/SSL Termination</div>
                         </div>
                     </div>
-                    <div style="font-size: 2rem; margin: 1rem 0; color: var(--text-secondary);">↓</div>
-                    <div style="margin: 2rem 0;">
-                        <div class="arch-box secondary" style="display: inline-block; margin-right: 2rem;">
-                            <div class="arch-icon">🗄️</div>
-                            <div>PostgreSQL 15</div>
-                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Primary Database</div>
-                        </div>
-                        <div class="arch-box secondary" style="display: inline-block; margin-right: 2rem;">
-                            <div class="arch-icon">⚙️</div>
-                            <div>Redis Cache</div>
-                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Caching & Queue</div>
-                        </div>
-                        <div class="arch-box secondary" style="display: inline-block;">
-                            <div class="arch-icon">🛡️</div>
-                            <div>ClamAV Scanner</div>
-                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Threat Detection</div>
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <svg style="height: 30px; width: 100%;" viewBox="0 0 100 30" preserveAspectRatio="none">
+                            <defs>
+                                <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                    <polygon points="0 0, 10 5, 0 10" fill="#ff6b35" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="0" x2="50" y2="30" stroke="#ff6b35" stroke-width="2" marker-end="url(#arrowhead2)" />
+                        </svg>
+                    </div>
+
+                    <!-- Layer 3: Application Services -->
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <div style="display: inline-block; background: #f0f0ff; padding: 1.5rem; border-radius: 12px; border: 2px solid #6366f1; min-width: 600px;">
+                            <div style="font-size: 1.2rem; color: #6366f1; font-weight: 700; margin-bottom: 1.5rem;">⚙️ Application Layer (Containerized)</div>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #6366f1;">
+                                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">⚡</div>
+                                    <div style="font-weight: 700; font-size: 0.9rem; color: #333;">FastAPI Backend</div>
+                                    <div style="font-size: 0.75rem; color: #666; margin-top: 0.3rem;">Async Processing</div>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #6366f1;">
+                                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔄</div>
+                                    <div style="font-weight: 700; font-size: 0.9rem; color: #333;">Celery Workers</div>
+                                    <div style="font-size: 0.75rem; color: #666; margin-top: 0.3rem;">Background Jobs</div>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #6366f1;">
+                                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📝</div>
+                                    <div style="font-weight: 700; font-size: 0.9rem; color: #333;">Collabora Online</div>
+                                    <div style="font-size: 0.75rem; color: #666; margin-top: 0.3rem;">Real-time Editing</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div style="font-size: 2rem; margin: 1rem 0; color: var(--text-secondary);">↓</div>
-                    <div style="margin: 2rem 0;">
-                        <div class="arch-box primary" style="display: inline-block;">
-                            <div class="arch-icon">💾</div>
-                            <div>CAS Storage (Encrypted)</div>
-                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">AES-256-GCM</div>
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <svg style="height: 30px; width: 100%;" viewBox="0 0 100 30" preserveAspectRatio="none">
+                            <defs>
+                                <marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                    <polygon points="0 0, 10 5, 0 10" fill="#6366f1" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="0" x2="50" y2="30" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowhead3)" />
+                        </svg>
+                    </div>
+
+                    <!-- Layer 4: Data & Services -->
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <div style="display: inline-block; background: #f0fff4; padding: 1.5rem; border-radius: 12px; border: 2px solid #10b981; min-width: 600px;">
+                            <div style="font-size: 1.2rem; color: #10b981; font-weight: 700; margin-bottom: 1.5rem;">💾 Data & Services Layer</div>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #10b981;">
+                                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🗄️</div>
+                                    <div style="font-weight: 700; font-size: 0.9rem; color: #333;">PostgreSQL 15</div>
+                                    <div style="font-size: 0.75rem; color: #666; margin-top: 0.3rem;">Primary Database</div>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #10b981;">
+                                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">⚙️</div>
+                                    <div style="font-weight: 700; font-size: 0.9rem; color: #333;">Redis Cache</div>
+                                    <div style="font-size: 0.75rem; color: #666; margin-top: 0.3rem;">Queue & Sessions</div>
+                                </div>
+                                <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #10b981;">
+                                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🛡️</div>
+                                    <div style="font-weight: 700; font-size: 0.9rem; color: #333;">ClamAV Scanner</div>
+                                    <div style="font-size: 0.75rem; color: #666; margin-top: 0.3rem;">Threat Detection</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <svg style="height: 30px; width: 100%;" viewBox="0 0 100 30" preserveAspectRatio="none">
+                            <defs>
+                                <marker id="arrowhead4" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                    <polygon points="0 0, 10 5, 0 10" fill="#10b981" />
+                                </marker>
+                            </defs>
+                            <line x1="50" y1="0" x2="50" y2="30" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead4)" />
+                        </svg>
+                    </div>
+
+                    <!-- Layer 5: Storage -->
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <div style="display: inline-block; background: #fef2f2; padding: 1rem 2rem; border-radius: 12px; border: 2px solid #ef4444;">
+                            <div style="font-size: 1.2rem; color: #ef4444; font-weight: 700; margin-bottom: 0.5rem;">💎 Secure Storage Layer</div>
+                            <div style="font-size: 0.9rem; color: #ef4444; opacity: 0.9; font-weight: 600;">Content Addressable Storage (CAS)</div>
+                            <div style="font-size: 0.8rem; color: #ef4444; opacity: 0.7; margin-top: 0.3rem;">SHA-256 Hashing • AES-256-GCM Encryption</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary);">
-                    <h4 style="color: var(--primary); margin-bottom: 1rem; font-weight: 700;">Horizontal Scalability</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Backend services can scale independently behind load balancer. Add more workers for increased throughput.</p>
+            <!-- Architecture Key Features -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">📈 Horizontal Scalability</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Backend services auto-scale behind load balancer. Add workers independently for increased throughput.</p>
                 </div>
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--accent);">
-                    <h4 style="color: var(--accent); margin-bottom: 1rem; font-weight: 700;">High Availability</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Database connection pooling, automatic failover, and backup strategies ensure 99.9% uptime.</p>
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--accent); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">☁️ High Availability</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Connection pooling, automatic failover, replication, and backup strategies ensure 99.9% uptime.</p>
                 </div>
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--success);">
-                    <h4 style="color: var(--success); margin-bottom: 1rem; font-weight: 700;">Containerized</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Docker & Docker Compose for consistent deployment across development, testing, and production.</p>
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--success); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h4 style="color: var(--success); margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">🐳 Containerized Deployment</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Docker & Docker Compose ensure consistency across dev, staging, and production environments.</p>
+                </div>
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid #8b5cf6; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h4 style="color: #8b5cf6; margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">🔐 Enterprise Security</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">End-to-end encryption, CAS deduplication, threat scanning, and isolated network architecture.</p>
+                </div>
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid #f59e0b; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h4 style="color: #f59e0b; margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">⚡ Performance Optimized</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Redis caching, async processing, connection pooling, and streaming pipelines for sub-200ms response times.</p>
+                </div>
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid #06b6d4; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <h4 style="color: #06b6d4; margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">🎯 Disaster Recovery</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Point-in-time backups, multi-region support, and automated recovery procedures minimize data loss.</p>
                 </div>
             </div>
         </div>
