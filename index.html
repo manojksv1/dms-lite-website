@@ -1082,8 +1082,8 @@
                 <a href="#roles">Roles</a>
                 <a href="#formats">Formats</a>
                 <a href="#technology">Stack</a>
-                <a href="#architecture">Architecture</a>
                 <a href="#security">Security</a>
+                <a href="#architecture">Architecture</a>
             </nav>
         </div>
     </header>
@@ -1438,46 +1438,6 @@
         </div>
     </section>
 
-    <!-- Implementation Timeline -->
-    <section style="padding: 100px 2rem; background: var(--bg-lighter);">
-        <div class="section-container">
-            <h2 class="section-title">Lightning-Fast Deployment</h2>
-            <p class="section-subtitle">From decision to production in days, not months. Containerized architecture enables rapid implementation.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
-                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
-                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">1</div>
-                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Assessment</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">1-2 days</p>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">Requirements & environment review</p>
-                </div>
-                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
-                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">2</div>
-                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Docker Setup</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">1 day</p>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">Deploy & configure entire stack</p>
-                </div>
-                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
-                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">3</div>
-                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Training</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">2-3 days</p>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">User & admin training</p>
-                </div>
-                <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--accent-light) 0%, white 100%); border-radius: 12px; border: 2px solid var(--accent);">
-                    <div style="font-size: 2.5rem; color: var(--accent); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">4</div>
-                    <h4 style="color: var(--accent); margin-bottom: 0.75rem; font-weight: 700;">Go Live</h4>
-                    <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600;">Day 5</p>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">Production deployment</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--primary-light) 0%, white 100%); border-radius: 12px; border: 2px solid var(--primary);">
-                <h3 style="color: var(--primary); margin-bottom: 1rem; font-weight: 700; font-size: 1.3rem;">🚀 Total Time: Less than 1 Week</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; max-width: 700px; margin: 0 auto;">Powered by containerized Docker architecture, DMS Enterprise deploys complete infrastructure in hours, not weeks. End-to-end implementation typically completed in 4-5 business days.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Architecture Diagram Section -->
     <section id="architecture" class="architecture-section">
         <div class="section-container">
@@ -1595,30 +1555,70 @@
 
             <!-- Architecture Key Features -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <h4 style="color: var(--primary); margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">📈 Horizontal Scalability</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Backend services auto-scale behind load balancer. Add workers independently for increased throughput.</p>
                 </div>
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--accent); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--accent); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <h4 style="color: var(--accent); margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">☁️ High Availability</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Connection pooling, automatic failover, replication, and backup strategies ensure 99.9% uptime.</p>
                 </div>
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--success); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--success); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <h4 style="color: var(--success); margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">🐳 Containerized Deployment</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Docker & Docker Compose ensure consistency across dev, staging, and production environments.</p>
                 </div>
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid #8b5cf6; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; border-left: 4px solid #8b5cf6; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <h4 style="color: #8b5cf6; margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">🔐 Enterprise Security</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">End-to-end encryption, CAS deduplication, threat scanning, and isolated network architecture.</p>
                 </div>
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid #f59e0b; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; border-left: 4px solid #f59e0b; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <h4 style="color: #f59e0b; margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">⚡ Performance Optimized</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Redis caching, async processing, connection pooling, and streaming pipelines for sub-200ms response times.</p>
                 </div>
-                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid #06b6d4; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; border-left: 4px solid #06b6d4; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                     <h4 style="color: #06b6d4; margin-bottom: 1rem; font-weight: 700; font-size: 1rem;">🎯 Disaster Recovery</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0;">Point-in-time backups, multi-region support, and automated recovery procedures minimize data loss.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section style="padding: 100px 2rem; background: var(--bg-lighter);">
+        <div class="section-container">
+            <h2 class="section-title">Lightning-Fast Deployment</h2>
+            <p class="section-subtitle">From decision to production in days, not months. Containerized architecture enables rapid implementation.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
+                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">1</div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Assessment</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">1-2 days</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">Requirements & environment review</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
+                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">2</div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Docker Setup</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">1 day</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">Deploy & configure entire stack</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
+                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">3</div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Training</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">2-3 days</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">User & admin training</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--accent-light) 0%, white 100%); border-radius: 12px; border: 2px solid var(--accent);">
+                    <div style="font-size: 2.5rem; color: var(--accent); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">4</div>
+                    <h4 style="color: var(--accent); margin-bottom: 0.75rem; font-weight: 700;">Go Live</h4>
+                    <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600;">Day 5</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;">Production deployment</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--primary-light) 0%, white 100%); border-radius: 12px; border: 2px solid var(--primary);">
+                <h3 style="color: var(--primary); margin-bottom: 1rem; font-weight: 700; font-size: 1.3rem;">🚀 Total Time: Less than 1 Week</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; max-width: 700px; margin: 0 auto;">Powered by containerized Docker architecture, DMS Enterprise deploys complete infrastructure in hours, not weeks. End-to-end implementation typically completed in 4-5 business days.</p>
             </div>
         </div>
     </section>
