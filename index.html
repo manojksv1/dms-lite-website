@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMS Enterprise - Enterprise Document Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004a99;
+            --primary-light: #e3f2fd;
+            --accent: #ff6b35;
+            --accent-light: #fff3e0;
+            --success: #10b981;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --bg-light: #f8fafc;
+            --bg-lighter: #f1f5f9;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--text-primary);
+            padding: 0.75rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Sora', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.25);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, var(--bg-lighter) 100%);
+            padding: 120px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            font-family: 'Sora', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 102, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 102, 204, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 2rem;
+            background: var(--bg-lighter);
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 800;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* User Roles Section */
+        .roles-section {
+            padding: 100px 2rem;
+            background-color: white;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .role-card {
+            background: linear-gradient(135deg, var(--bg-lighter) 0%, white 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .role-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(0, 102, 204, 0.1);
+        }
+
+        .role-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .role-card .role-type {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .role-card ul {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+            list-style-type: none;
+        }
+
+        .role-card li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .role-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* File Formats Section */
+        .formats-section {
+            padding: 100px 2rem;
+            background: var(--bg-lighter);
+        }
+
+        .formats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .format-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .format-category {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .format-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 102, 204, 0.1);
+        }
+
+        .format-category h4 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.75rem;
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .format-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .format-tag {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #f0f9ff 100%);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .format-tag:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Technology Stack Section */
+        .tech-section {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-section .section-title {
+            color: white;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tech-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+            border-bottom: 2px solid rgba(255, 107, 53, 0.8);
+            padding-bottom: 1rem;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 0.6rem 0;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tech-list li:before {
+            content: "✓";
+            margin-right: 0.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Security Section */
+        .security-section {
+            padding: 100px 2rem;
+            background-color: white;
+        }
+
+        .security-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .security-item {
+            background: linear-gradient(135deg, var(--accent-light) 0%, white 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid var(--accent);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+        }
+
+        .security-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.15);
+        }
+
+        .security-item h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .security-item p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+            font-size: 0.95rem;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 100px 2rem;
+            background: var(--bg-lighter);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.1);
+            border-color: var(--primary);
+        }
+
+        .benefit-number {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .benefit-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .benefit-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Specs Section */
+        .specs-section {
+            padding: 100px 2rem;
+            background-color: white;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .spec-item {
+            border: 2px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--bg-lighter) 0%, white 100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+        }
+
+        .spec-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(0, 102, 204, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .spec-label {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .spec-value {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .spec-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h5 {
+            margin-bottom: 1rem;
+            color: #ff6b35;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            header {
+                padding: 0.5rem 0;
+            }
+
+            .header-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Architecture Diagram Section */
+        .architecture-section {
+            padding: 100px 2rem;
+            background: white;
+        }
+
+        .architecture-diagram {
+            background: var(--bg-lighter);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-top: 2rem;
+            border: 2px solid var(--border);
+            overflow-x: auto;
+        }
+
+        .arch-box {
+            display: inline-block;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem;
+            min-width: 160px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+            transition: all 0.3s;
+        }
+
+        .arch-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+        }
+
+        .arch-box.primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .arch-box.secondary {
+            background: linear-gradient(135deg, var(--accent-light) 0%, white 100%);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .arch-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .demo-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .demo-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+        }
+
+        .demo-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+            text-align: left;
+        }
+
+        .feature-list li {
+            padding: 1rem;
+            font-size: 1.05rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .feature-list li:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(8px);
+        }
+
+        .feature-list li:before {
+            content: "→ ";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">📑 DMS Enterprise</div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#roles">User Roles</a>
+                <a href="#formats">Formats</a>
+                <a href="#technology">Technology</a>
+                <a href="#security">Security</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Enterprise Document Management Reimagined</h1>
+            <p>Secure, scalable, and intelligent document management for modern enterprises. Store, manage, collaborate, and govern documents with enterprise-grade security and compliance.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('demo')">Request Demo</button>
+                <button class="btn btn-secondary" onclick="scrollToSection('features')">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits -->
+    <section class="benefits-section">
+        <div class="section-container">
+            <h2 class="section-title">Why Choose DMS Enterprise?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-number">99.9%</div>
+                    <h4>Uptime SLA</h4>
+                    <p>Enterprise-grade reliability with 24/7 monitoring and support</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">100+</div>
+                    <h4>Concurrent Users</h4>
+                    <p>Handle hundreds of simultaneous users without performance degradation</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">&lt;200ms</div>
+                    <h4>Response Time</h4>
+                    <p>Lightning-fast API responses for optimal user experience</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-number">AES-256</div>
+                    <h4>Military-Grade Encryption</h4>
+                    <p>All documents encrypted at rest and in transit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-container">
+            <h2 class="section-title">Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Advanced Security</h3>
+                    <p>Multi-factor authentication, role-based access control, virus scanning, and comprehensive audit trails for complete visibility and compliance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Intelligent Search</h3>
+                    <p>Full-text search with OCR, metadata filtering, and advanced queries. Find documents in seconds with PaddleOCR technology.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Real-Time Collaboration</h3>
+                    <p>Co-author documents simultaneously with Collabora Online integration. Edit Word, Excel, and PowerPoint files together in real-time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Workflow Automation</h3>
+                    <p>Multi-step approval workflows, task assignment, and status tracking. Automate document approvals and governance processes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Document Lifecycle</h3>
+                    <p>Complete version control, retention policies, and automatic archival. Manage documents from creation to disposal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖨️</div>
+                    <h3>Physical Records Integration</h3>
+                    <p>Integrate with desktop scanners (TWAIN/WIA) for digitization. Bridge physical and digital document management seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Roles Section -->
+    <section id="roles" class="roles-section">
+        <div class="section-container">
+            <h2 class="section-title">Designed for Every User</h2>
+            <div class="roles-grid">
+                <div class="role-card">
+                    <h4>👨‍💼 Administrator</h4>
+                    <div class="role-type">System Super-User</div>
+                    <ul>
+                        <li>User management</li>
+                        <li>System configuration</li>
+                        <li>Retention policies</li>
+                        <li>Audit log review</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <h4>📊 Manager</h4>
+                    <div class="role-type">Department or Team Lead</div>
+                    <ul>
+                        <li>Workflow approvals</li>
+                        <li>Folder management</li>
+                        <li>Team oversight</li>
+                        <li>Policy enforcement</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <h4>💼 Contributor</h4>
+                    <div class="role-type">Standard Employee</div>
+                    <ul>
+                        <li>Upload documents</li>
+                        <li>Edit collaboratively</li>
+                        <li>Share documents</li>
+                        <li>Comment & discuss</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <h4>👁️ Viewer</h4>
+                    <div class="role-type">Read-Only Access</div>
+                    <ul>
+                        <li>View documents</li>
+                        <li>Download files</li>
+                        <li>Search documents</li>
+                        <li>Access reports</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <h4>🔗 External User</h4>
+                    <div class="role-type">Guest or Client</div>
+                    <ul>
+                        <li>Access shared links</li>
+                        <li>Public document view</li>
+                        <li>No system access</li>
+                        <li>Limited permissions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Formats Section -->
+    <section id="formats" class="formats-section">
+        <div class="formats-container">
+            <h2 class="section-title">Support for 50+ File Formats</h2>
+            <div class="format-categories">
+                <div class="format-category">
+                    <h4>📄 Office Documents</h4>
+                    <div class="format-list">
+                        <span class="format-tag">PDF</span>
+                        <span class="format-tag">DOCX</span>
+                        <span class="format-tag">DOC</span>
+                        <span class="format-tag">XLSX</span>
+                        <span class="format-tag">XLS</span>
+                        <span class="format-tag">PPTX</span>
+                        <span class="format-tag">ODP</span>
+                        <span class="format-tag">ODT</span>
+                    </div>
+                </div>
+                <div class="format-category">
+                    <h4>🖼️ Images & Graphics</h4>
+                    <div class="format-list">
+                        <span class="format-tag">JPG/JPEG</span>
+                        <span class="format-tag">PNG</span>
+                        <span class="format-tag">TIFF</span>
+                        <span class="format-tag">BMP</span>
+                        <span class="format-tag">WebP</span>
+                        <span class="format-tag">SVG</span>
+                        <span class="format-tag">GIF</span>
+                    </div>
+                </div>
+                <div class="format-category">
+                    <h4>🎬 Multimedia</h4>
+                    <div class="format-list">
+                        <span class="format-tag">MP4</span>
+                        <span class="format-tag">WebM</span>
+                        <span class="format-tag">MP3</span>
+                        <span class="format-tag">WAV</span>
+                        <span class="format-tag">FLAC</span>
+                        <span class="format-tag">MKV</span>
+                        <span class="format-tag">MOV</span>
+                    </div>
+                </div>
+                <div class="format-category">
+                    <h4>📦 Archives & Code</h4>
+                    <div class="format-list">
+                        <span class="format-tag">ZIP</span>
+                        <span class="format-tag">RAR</span>
+                        <span class="format-tag">7Z</span>
+                        <span class="format-tag">JSON</span>
+                        <span class="format-tag">XML</span>
+                        <span class="format-tag">PYTHON</span>
+                        <span class="format-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="format-category">
+                    <h4>📧 Email & Data</h4>
+                    <div class="format-list">
+                        <span class="format-tag">MSG</span>
+                        <span class="format-tag">EML</span>
+                        <span class="format-tag">CSV</span>
+                        <span class="format-tag">TXT</span>
+                        <span class="format-tag">MD</span>
+                        <span class="format-tag">RTF</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="tech-section">
+        <div class="tech-container">
+            <h2 class="section-title">Built on Modern Enterprise Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Frontend</h4>
+                    <ul class="tech-list">
+                        <li>React 19 with Vite</li>
+                        <li>TypeScript for type safety</li>
+                        <li>Material UI components</li>
+                        <li>responsive design</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Backend</h4>
+                    <ul class="tech-list">
+                        <li>FastAPI (Python 3.11+)</li>
+                        <li>SQLAlchemy 2.0 ORM</li>
+                        <li>Async/await patterns</li>
+                        <li>RESTful API design</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Databases & Storage</h4>
+                    <ul class="tech-list">
+                        <li>PostgreSQL 15</li>
+                        <li>Redis caching layer</li>
+                        <li>PgBouncer connection pooling</li>
+                        <li>CAS with deduplication</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Infrastructure</h4>
+                    <ul class="tech-list">
+                        <li>Docker & Docker Compose</li>
+                        <li>Nginx load balancer</li>
+                        <li>Celery background jobs</li>
+                        <li>Kubernetes ready</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Integrations</h4>
+                    <ul class="tech-list">
+                        <li>Collabora Online (WOPI)</li>
+                        <li>ClamAV virus scanning</li>
+                        <li>PaddleOCR for text</li>
+                        <li>TWAIN/WIA scanners</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Security</h4>
+                    <ul class="tech-list">
+                        <li>AES-256-GCM encryption</li>
+                        <li>TLS 1.2/1.3</li>
+                        <li>bcrypt hashing</li>
+                        <li>TOTP MFA support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="security-section">
+        <div class="section-container">
+            <h2 class="section-title">Enterprise-Grade Security & Compliance</h2>
+            <div class="security-highlights">
+                <div class="security-item">
+                    <h4>🔒 Data Encryption</h4>
+                    <p>AES-256-GCM encryption at rest and TLS 1.2/1.3 in transit. Your documents are always protected, whether stored or in motion.</p>
+                </div>
+                <div class="security-item">
+                    <h4>🛡️ Access Control</h4>
+                    <p>Role-Based Access Control (RBAC) with granular permissions at Cabinet, Drawer, and Folder levels. Hierarchical permission resolution.</p>
+                </div>
+                <div class="security-item">
+                    <h4>🦠 Threat Detection</h4>
+                    <p>Real-time ClamAV virus scanning on all uploads. Stream-based scanning ensures threats are caught before storage.</p>
+                </div>
+                <div class="security-item">
+                    <h4>📋 Audit Trails</h4>
+                    <p>Comprehensive logging of all user actions. Complete audit history for compliance reviews and forensic analysis.</p>
+                </div>
+                <div class="security-item">
+                    <h4>🔑 Authentication</h4>
+                    <p>Multi-factor authentication (MFA) with TOTP support. Account locking and password reset workflows for added security.</p>
+                </div>
+                <div class="security-item">
+                    <h4>♻️ Lifecycle Management</h4>
+                    <p>Automated retention policies and compliance-based disposal. Ensure documents are retained and destroyed according to regulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Specs -->
+    <section class="specs-section">
+        <div class="section-container">
+            <h2 class="section-title">Performance & Reliability</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-label">Response Time</div>
+                    <div class="spec-value">&lt; 200ms</div>
+                    <p>Standard API operations complete in milliseconds</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Search Speed</div>
+                    <div class="spec-value">&lt; 1 second</div>
+                    <p>Full-text search on 1M+ documents</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Concurrent Users</div>
+                    <div class="spec-value">100+</div>
+                    <p>Simultaneous active users supported</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Uptime SLA</div>
+                    <div class="spec-value">99.9%</div>
+                    <p>Enterprise reliability promise</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">File Size Support</div>
+                    <div class="spec-value">&gt; 100MB</div>
+                    <p>Large file upload capability</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Supported Formats</div>
+                    <div class="spec-value">50+</div>
+                    <p>Comprehensive file format support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="demo-content">
+            <h2>Ready for Enterprise Document Management?</h2>
+            <p>See DMS Enterprise in action with a personalized demo tailored to your organization's needs.</p>
+            <ul class="feature-list">
+                <li>Live demonstration of key features</li>
+                <li>Custom workflow setup for your use case</li>
+                <li>Security & compliance walkthrough</li>
+                <li>Integration possibilities discussion</li>
+                <li>Pricing and licensing options</li>
+                <li>Implementation timeline</li>
+            </ul>
+            <br>
+            <button class="btn btn-primary" onclick="requestDemo()">Request a Demo Today</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>Product</h5>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#formats">Formats</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#security">Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Docs</a></li>
+                    <li><a href="#">Knowledge Base</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DMS Enterprise. All rights reserved. | Enterprise Document Management System</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function requestDemo() {
+            alert('Demo request received! Our sales team will contact you shortly.');
+        }
+
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add scroll animation for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .role-card, .tech-card, .security-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
