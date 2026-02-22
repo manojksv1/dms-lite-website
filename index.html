@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DMS Enterprise - Enterprise Document Management System</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232563eb;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%231e40af;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Crect x='20' y='20' width='25' height='25' rx='4' fill='white' opacity='0.95'/%3E%3Crect x='55' y='20' width='25' height='25' rx='4' fill='white' opacity='0.95'/%3E%3Crect x='20' y='55' width='25' height='25' rx='4' fill='white' opacity='0.95'/%3E%3Crect x='55' y='55' width='25' height='25' rx='4' fill='white' opacity='0.95'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%235b7cdb;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%234a5fb8;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='30' y='30' width='40' height='40' rx='6' fill='url(%23grad)'/%3E%3Crect x='35' y='38' width='30' height='3' rx='1.5' fill='%2300d9ff'/%3E%3Crect x='35' y='45' width='30' height='3' rx='1.5' fill='%2300d9ff'/%3E%3Crect x='35' y='52' width='30' height='3' rx='1.5' fill='%2300d9ff'/%3E%3Cellipse cx='50' cy='15' rx='4' ry='4' fill='%2300d9ff'/%3E%3Cellipse cx='85' cy='50' rx='4' ry='4' fill='%2300d9ff'/%3E%3Cellipse cx='50' cy='85' rx='4' ry='4' fill='%2300d9ff'/%3E%3Cellipse cx='15' cy='50' rx='4' ry='4' fill='%2300d9ff'/%3E%3Cellipse cx='50' cy='50' rx='35' ry='35' fill='none' stroke='%23b8c5e8' stroke-width='1.5' opacity='0.4'/%3E%3Cellipse cx='50' cy='50' rx='35' ry='15' fill='none' stroke='%23b8c5e8' stroke-width='1.5' opacity='0.4'/%3E%3Cellipse cx='50' cy='50' rx='15' ry='35' fill='none' stroke='%23b8c5e8' stroke-width='1.5' opacity='0.4'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
@@ -86,51 +86,88 @@
         }
         
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 10px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 3px;
-            padding: 10px;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            width: 50px;
+            height: 50px;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .logo-icon::before {
-            content: '';
-            background: white;
-            border-radius: 2px;
-            opacity: 0.95;
+        .logo-icon-doc {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #5b7cdb 0%, #4a5fb8 100%);
+            border-radius: 4px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            padding: 5px;
         }
 
-        .logo-icon::after {
-            content: '';
-            background: white;
-            border-radius: 2px;
-            opacity: 0.95;
+        .logo-icon-line {
+            width: 14px;
+            height: 2px;
+            background: #00d9ff;
+            border-radius: 1px;
         }
 
-        .logo-icon-middle {
-            background: white;
-            border-radius: 2px;
-            opacity: 0.95;
-            grid-column: 1 / 2;
-            grid-row: 2 / 3;
-        }
-
-        .logo-icon-middle::after {
-            content: '';
+        .logo-icon-orbit {
             position: absolute;
-            background: white;
-            border-radius: 2px;
-            opacity: 0.95;
-            width: 7px;
-            height: 7px;
-            right: 10px;
-            bottom: 10px;
+            border: 1.5px solid #b8c5e8;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .logo-icon-orbit-1 {
+            width: 44px;
+            height: 44px;
+        }
+
+        .logo-icon-orbit-2 {
+            width: 44px;
+            height: 18px;
+        }
+
+        .logo-icon-orbit-3 {
+            width: 18px;
+            height: 44px;
+        }
+
+        .logo-icon-dot {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #00d9ff;
+            border-radius: 50%;
+        }
+
+        .logo-icon-dot-top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo-icon-dot-right {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .logo-icon-dot-bottom {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo-icon-dot-left {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .logo-text {
@@ -1135,7 +1172,18 @@
         <div class="header-container">
             <div class="logo">
                 <div class="logo-icon">
-                    <div class="logo-icon-middle"></div>
+                    <div class="logo-icon-orbit logo-icon-orbit-1"></div>
+                    <div class="logo-icon-orbit logo-icon-orbit-2"></div>
+                    <div class="logo-icon-orbit logo-icon-orbit-3"></div>
+                    <div class="logo-icon-doc">
+                        <div class="logo-icon-line"></div>
+                        <div class="logo-icon-line"></div>
+                        <div class="logo-icon-line"></div>
+                    </div>
+                    <div class="logo-icon-dot logo-icon-dot-top"></div>
+                    <div class="logo-icon-dot logo-icon-dot-right"></div>
+                    <div class="logo-icon-dot logo-icon-dot-bottom"></div>
+                    <div class="logo-icon-dot logo-icon-dot-left"></div>
                 </div>
                 <div class="logo-text">
                     <span class="logo-text-main">DMS Enterprise</span>
