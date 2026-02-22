@@ -121,21 +121,56 @@
             border: 1.5px solid #b8c5e8;
             border-radius: 50%;
             opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-icon:hover .logo-icon-orbit {
+            opacity: 0.6;
         }
 
         .logo-icon-orbit-1 {
             width: 44px;
             height: 44px;
+            animation: spin-orbit-1 8s linear infinite paused;
         }
 
         .logo-icon-orbit-2 {
             width: 44px;
             height: 18px;
+            animation: spin-orbit-2 6s linear infinite paused;
         }
 
         .logo-icon-orbit-3 {
             width: 18px;
             height: 44px;
+            animation: spin-orbit-3 7s linear infinite paused;
+        }
+
+        .logo-icon:hover .logo-icon-orbit-1 {
+            animation-play-state: running;
+        }
+
+        .logo-icon:hover .logo-icon-orbit-2 {
+            animation-play-state: running;
+        }
+
+        .logo-icon:hover .logo-icon-orbit-3 {
+            animation-play-state: running;
+        }
+
+        @keyframes spin-orbit-1 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-orbit-2 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-orbit-3 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .logo-icon-dot {
@@ -144,6 +179,13 @@
             height: 5px;
             background: #00d9ff;
             border-radius: 50%;
+            box-shadow: 0 0 8px #00d9ff;
+            transition: box-shadow 0.3s ease, top 0.5s ease, left 0.5s ease, transform 0.5s ease;
+        }
+
+        .logo-icon:hover .logo-icon-dot {
+            box-shadow: 0 0 12px #00d9ff, 0 0 20px rgba(0, 217, 255, 0.5);
+            transition: box-shadow 0.3s ease;
         }
 
         .logo-icon-dot-top {
@@ -168,6 +210,54 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
+        }
+
+        .logo-icon:hover .logo-icon-dot-top {
+            animation: orbit-top 8s linear infinite;
+        }
+
+        .logo-icon:hover .logo-icon-dot-right {
+            animation: orbit-right 6s linear infinite;
+        }
+
+        .logo-icon:hover .logo-icon-dot-bottom {
+            animation: orbit-bottom 7s linear infinite;
+        }
+
+        .logo-icon:hover .logo-icon-dot-left {
+            animation: orbit-left 6s linear infinite;
+        }
+
+        @keyframes orbit-top {
+            0% { top: 0; left: 50%; transform: translate(-50%, 0); }
+            25% { top: 50%; left: 100%; transform: translate(-100%, -50%); }
+            50% { top: 100%; left: 50%; transform: translate(-50%, -100%); }
+            75% { top: 50%; left: 0; transform: translate(0, -50%); }
+            100% { top: 0; left: 50%; transform: translate(-50%, 0); }
+        }
+
+        @keyframes orbit-right {
+            0% { top: 50%; left: 100%; transform: translate(-100%, -50%); }
+            25% { top: 100%; left: 50%; transform: translate(-50%, -100%); }
+            50% { top: 50%; left: 0; transform: translate(0, -50%); }
+            75% { top: 0; left: 50%; transform: translate(-50%, 0); }
+            100% { top: 50%; left: 100%; transform: translate(-100%, -50%); }
+        }
+
+        @keyframes orbit-bottom {
+            0% { top: 100%; left: 50%; transform: translate(-50%, -100%); }
+            25% { top: 50%; left: 0; transform: translate(0, -50%); }
+            50% { top: 0; left: 50%; transform: translate(-50%, 0); }
+            75% { top: 50%; left: 100%; transform: translate(-100%, -50%); }
+            100% { top: 100%; left: 50%; transform: translate(-50%, -100%); }
+        }
+
+        @keyframes orbit-left {
+            0% { top: 50%; left: 0; transform: translate(0, -50%); }
+            25% { top: 0; left: 50%; transform: translate(-50%, 0); }
+            50% { top: 50%; left: 100%; transform: translate(-100%, -50%); }
+            75% { top: 100%; left: 50%; transform: translate(-50%, -100%); }
+            100% { top: 50%; left: 0; transform: translate(0, -50%); }
         }
 
         .logo-text {
