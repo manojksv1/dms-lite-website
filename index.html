@@ -787,6 +787,69 @@
             .header-container {
                 padding: 0 1rem;
             }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            justify-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h5 {
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.05rem;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+            transform: translateX(4px);
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
 
         /* Architecture Diagram Section */
@@ -840,6 +903,12 @@
         .arch-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
+        }
+
+        /* Success Section */
+        .success-section {
+            padding: 100px 2rem;
+            background: var(--bg-lighter);
         }
 
         /* Demo Section */
@@ -907,9 +976,10 @@
             <div class="logo">📑 DMS Enterprise</div>
             <nav>
                 <a href="#features">Features</a>
-                <a href="#roles">User Roles</a>
+                <a href="#roles">Roles</a>
                 <a href="#formats">Formats</a>
-                <a href="#technology">Technology</a>
+                <a href="#technology">Stack</a>
+                <a href="#architecture">Architecture</a>
                 <a href="#security">Security</a>
             </nav>
         </div>
@@ -1258,6 +1328,161 @@
         </div>
     </section>
 
+    <!-- Success Stories Section -->
+    <section class="success-section">
+        <div class="section-container">
+            <h2 class="section-title">Trusted by Enterprises</h2>
+            <p class="section-subtitle">Organizations worldwide rely on DMS Enterprise for secure, scalable document management.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s;">
+                    <div style="display: flex; margin-bottom: 1.5rem;">
+                        <span style="color: var(--accent); font-size: 1.5rem;">★★★★★</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem;">"DMS Enterprise transformed our document management. The search capabilities alone cut our retrieval time by 80%. Highly recommended for any enterprise."</p>
+                    <div style="border-top: 1px solid var(--border); padding-top: 1rem;">
+                        <p style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">John Anderson</p>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">CTO, Global Finance Corp</p>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s;">
+                    <div style="display: flex; margin-bottom: 1.5rem;">
+                        <span style="color: var(--accent); font-size: 1.5rem;">★★★★★</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem;">"The security features are superb. Military-grade encryption, audit trails, and compliance management give us complete peace of mind."</p>
+                    <div style="border-top: 1px solid var(--border); padding-top: 1rem;">
+                        <p style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Sarah Chen</p>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">Compliance Officer, Healthcare Inc</p>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s;">
+                    <div style="display: flex; margin-bottom: 1.5rem;">
+                        <span style="color: var(--accent); font-size: 1.5rem;">★★★★★</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem;">"Seamless integration with our existing systems. The support team was exceptional. ROI materialized within 3 months."</p>
+                    <div style="border-top: 1px solid var(--border); padding-top: 1rem;">
+                        <p style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Michael Torres</p>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">Operations Director, Legal Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section style="padding: 100px 2rem; background: var(--bg-lighter);">
+        <div class="section-container">
+            <h2 class="section-title">Quick Implementation</h2>
+            <p class="section-subtitle">Get up and running in weeks, not months.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
+                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">1</div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Assessment</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">3-5 days</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
+                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">2</div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Setup</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">1-2 weeks</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; border: 2px solid var(--primary);">
+                    <div style="font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">3</div>
+                    <h4 style="color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 700;">Training</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">1 week</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--accent-light) 0%, white 100%); border-radius: 12px; border: 2px solid var(--accent);">
+                    <div style="font-size: 2.5rem; color: var(--accent); font-weight: 800; margin-bottom: 0.5rem; font-family: 'Sora', sans-serif;">4</div>
+                    <h4 style="color: var(--accent); margin-bottom: 0.75rem; font-weight: 700;">Go Live</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Ready to deploy</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-secondary); font-size: 1rem;">Fast-track implementations available for urgent requirements</p>
+        </div>
+    </section>
+
+    <!-- Architecture Diagram Section -->
+    <section id="architecture" class="architecture-section">
+        <div class="section-container">
+            <h2 class="section-title">System Architecture</h2>
+            <p class="section-subtitle">Enterprise-grade infrastructure designed for scalability, security, and high availability.</p>
+            
+            <div class="architecture-diagram">
+                <div style="text-align: center;">
+                    <div style="margin: 2rem 0;">
+                        <div class="arch-box primary" style="display: inline-block;">
+                            <div class="arch-icon">🌐</div>
+                            <div>Nginx Load Balancer</div>
+                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">SSL/TLS Termination</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 2rem; margin: 1rem 0; color: var(--text-secondary);">↓</div>
+                    <div style="margin: 2rem 0;">
+                        <div class="arch-box primary" style="display: inline-block; margin-right: 2rem;">
+                            <div class="arch-icon">⚡</div>
+                            <div>FastAPI Backend</div>
+                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Async Python</div>
+                        </div>
+                        <div class="arch-box primary" style="display: inline-block; margin-right: 2rem;">
+                            <div class="arch-icon">🔄</div>
+                            <div>Celery Workers</div>
+                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Background Tasks</div>
+                        </div>
+                        <div class="arch-box primary" style="display: inline-block;">
+                            <div class="arch-icon">📝</div>
+                            <div>Collabora Online</div>
+                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Document Editing</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 2rem; margin: 1rem 0; color: var(--text-secondary);">↓</div>
+                    <div style="margin: 2rem 0;">
+                        <div class="arch-box secondary" style="display: inline-block; margin-right: 2rem;">
+                            <div class="arch-icon">🗄️</div>
+                            <div>PostgreSQL 15</div>
+                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Primary Database</div>
+                        </div>
+                        <div class="arch-box secondary" style="display: inline-block; margin-right: 2rem;">
+                            <div class="arch-icon">⚙️</div>
+                            <div>Redis Cache</div>
+                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Caching & Queue</div>
+                        </div>
+                        <div class="arch-box secondary" style="display: inline-block;">
+                            <div class="arch-icon">🛡️</div>
+                            <div>ClamAV Scanner</div>
+                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">Threat Detection</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 2rem; margin: 1rem 0; color: var(--text-secondary);">↓</div>
+                    <div style="margin: 2rem 0;">
+                        <div class="arch-box primary" style="display: inline-block;">
+                            <div class="arch-icon">💾</div>
+                            <div>CAS Storage (Encrypted)</div>
+                            <div style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.5rem;">AES-256-GCM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary);">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem; font-weight: 700;">Horizontal Scalability</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Backend services can scale independently behind load balancer. Add more workers for increased throughput.</p>
+                </div>
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h4 style="color: var(--accent); margin-bottom: 1rem; font-weight: 700;">High Availability</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Database connection pooling, automatic failover, and backup strategies ensure 99.9% uptime.</p>
+                </div>
+                <div style="background: var(--bg-lighter); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--success);">
+                    <h4 style="color: var(--success); margin-bottom: 1rem; font-weight: 700;">Containerized</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Docker & Docker Compose for consistent deployment across development, testing, and production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Demo Section -->
     <section id="demo" class="demo-section">
         <div class="demo-content">
@@ -1322,6 +1547,7 @@
     </footer>
 
     <script>
+        // Smooth scroll and navigation
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (element) {
@@ -1330,7 +1556,7 @@
         }
 
         function requestDemo() {
-            alert('Demo request received! Our sales team will contact you shortly.');
+            alert('Demo request received! Our sales team will contact you shortly at enterprise@dms.com');
         }
 
         // Smooth scroll behavior for anchor links
@@ -1344,7 +1570,7 @@
             });
         });
 
-        // Add scroll animation for cards
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1359,12 +1585,136 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card, .role-card, .tech-card, .security-item').forEach(card => {
+        document.querySelectorAll('.feature-card, .role-card, .tech-card, .security-item, .spec-item, .benefit-item, .format-category').forEach((card, index) => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease-out';
+            card.style.transition = `all 0.6s ease-out ${index * 0.05}s`;
             observer.observe(card);
         });
+
+        // Animated counter for benefit numbers
+        function animateCounter(element) {
+            const targetText = element.innerText;
+            const target = parseFloat(targetText.replace(/[^0-9.]/g, ''));
+            const duration = 2000;
+            const start = Date.now();
+            
+            if (isNaN(target)) return;
+
+            function update() {
+                const elapsed = Date.now() - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(target * progress);
+                element.innerText = targetText.replace(/[\d.]+/, current);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            update();
+        }
+
+        // Trigger counters when scrolled into view
+        const benefitObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.benefit-number').forEach(el => {
+            benefitObserver.observe(el);
+        });
+
+        // Enhanced button hover effects
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 12px 30px rgba(0, 102, 204, 0.3)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Parallax effect on hero
+        let isScrolling = false;
+        window.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                window.requestAnimationFrame(function() {
+                    const scrolled = window.pageYOffset;
+                    const hero = document.querySelector('.hero');
+                    if (hero) {
+                        hero.style.backgroundPosition = '0% ' + (scrolled * 0.5) + 'px';
+                    }
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
+
+        // Highlight active navigation item
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--primary)';
+                    link.style.fontWeight = '700';
+                }
+            });
+        });
+
+        // Add subtle glow effect to cards on mouse move
+        document.querySelectorAll('.feature-card, .role-card').forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (y - centerY) / 10;
+                const angleY = (centerX - x) / 10;
+                
+                this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add subtle animation to logos and icons
+            document.querySelectorAll('.feature-icon').forEach((icon, index) => {
+                icon.style.animation = `float 3s ease-in-out ${index * 0.2}s infinite`;
+            });
+        });
+
+        // Add CSS animation for floating icons
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
